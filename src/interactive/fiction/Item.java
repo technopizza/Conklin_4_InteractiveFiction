@@ -5,6 +5,8 @@
  */
 package interactive.fiction;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author jconklin2391
@@ -13,21 +15,28 @@ class Item {
 
     String name;
     char image;
-    int size;
+    int modifier;
+    
 
-    Item(String n) {
-        name = n;
-        image = '?';
-        size = 1;
-    }
+   
 
     Item(String n, char img, int s) {
         name = n;
         image = img;
-        size = s;
+        modifier = s;
     }
-         static Weapon longbow = new Weapon("longbow", '➵', 4);
-static Weapon shortbow = new Weapon("shortbow", '➵', 3);
-    static Weapon longsword = new Weapon("longsword", '⚔', 4);
-    static Weapon shortsword = new Weapon("shortsword", '⚔', 3);
+//         static Weapon longbow = new Weapon("longbow", '➵', 4);
+//static Weapon shortbow = new Weapon("shortbow", '➵', 3);
+//    static Weapon longsword = new Weapon("longsword", '⚔', 4);
+//    static Weapon shortsword = new Weapon("shortsword", '⚔', 3);
+    static final Item plunger = new Item("plunger", '/', 1);
+    static final Item hat = new Item("hat", 'O', 1);
+    static final Item katana = new Item("katana", '⚔', 7);
+    
+    static final Item playingcard = new ItemConsumable("playing card", '🃑', 9);
+    
+    static final Item holygrail = new ItemConsumable("the Holy Grail", '✝', 9);
+    static final Item lightsaber = new Item("lightsaber", '✝', 9);
+    
+    //static final Item katana = new Item("katana", '⚔', 7);
 }

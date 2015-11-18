@@ -12,15 +12,16 @@ package interactive.fiction;
 public class Archetype {
     String name;
     Trait[] traits;
-    Attributes attributes; 
-    Skills skills;
+    Skills skills; 
     Item[] inventory;
     
-    Archetype(String n, Attributes a, Skills s, Item[] i){
+    Archetype(String n, Skills a, Item[] i){
         name = n;
-        attributes = a;
-        skills = s;
+        skills = a;
         inventory = i;
     }
+
+    static final Archetype plumber = new Archetype("Plumber", new Skills(3, 3, 3, 0, 3, 3, 3, 5, 3), new Item[]{Item.plunger, Item.hat});
+    static final Archetype ninja = new Archetype("Ninja", new Skills(7, 7, 3, 0, 3, 10, 3, 3, 5), new Item[]{Item.plunger, Item.hat});
 }
 

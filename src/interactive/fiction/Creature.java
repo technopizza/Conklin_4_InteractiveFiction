@@ -13,21 +13,22 @@ public class Creature {
 
     String name;
     int level;
-    Attributes attributes;
     Skills skills;
     Trait[] traits;
     Archetype archetype;
     Item[] inventory;
+    Location location;
     
     int skillPoints;
     int experiencePoints;
 
-    Creature(String n, int l, Trait[] t, Skills s, Item[] i) {
+    Creature(String n, int l, Item[] i) {
         name = n;
         level = l;
-        traits = t;
+        //traits = t;
         inventory = i;
-        skills = s;
     }
 
+    static final Creature sheep = new Creature("sheep", 1, null);
+    
 }

@@ -18,15 +18,20 @@ public class InterActiveFiction {
      */
     public static void main(String[] args) {
         
-        Archetype wizard = new Archetype("Wizard", new Attributes(1, 1, 1, 1, 1), new Skills(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), null);
+        
         
         Scanner playerInput = new Scanner(System.in);
         System.out.println("What is your name?");
         String playerName = playerInput.nextLine();
 
         System.out.println("Choose an archetype, " + playerName + ".");
-        String playerClass = playerInput.nextLine();
+        //String playerClass = playerInput.nextLine();
        // Creature player = new Creature(playerName, 1,);
+        
+        while(true){
+            System.out.println(Item.a);
+        }
+        
     }
 
 }

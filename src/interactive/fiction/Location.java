@@ -14,4 +14,11 @@ public class Location {
         String terrain;
         String scenery;
         Creature[] residents;
+        Location[] connects;
+        
+        Location(String s, String t, String x, Creature r, Location()){
+            name = s;
+            
+        }
+       
 }

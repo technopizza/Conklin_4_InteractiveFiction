@@ -11,36 +11,50 @@ package interactive.fiction;
  */
 public class Skills {
 
-    int archery, athletics, chemistry, craftmanship, literacy, lore, magic, medicine, persuasion, stealth, swordsmanship;
+    int weapons;
+    int combat;
 
-    Skills(int i) {
+    int lore;
+    int magic;
 
-        this.archery = i;
-        this.athletics = i;
-        this.chemistry = i;
-        this.craftmanship = i;
-        this.literacy = i;
-        this.lore = i;
-        this.magic = i;
-        this.medicine = i;
-        this.persuasion = i;
-        this.stealth = i;
-        this.swordsmanship = i;
+    int persuasion;
+    int stealth;
+
+    int science;
+    int repair;
+
+    int survival;
+
+    Skills(int a) {
+        weapons = a;
+        combat = a;
+
+        lore = a;
+        magic = a;
+
+        persuasion = a;
+        stealth = a;
+
+        science = a;
+        repair = a;
+
+        survival = a;
     }
-    
-    Skills(int archery, int athletics, int chemistry, int craftmanship, int literacy, int lore, int magic, int medicine, int persuasion, int stealth, int swordsmanship) {
 
-        this.archery = archery;
-        this.athletics = athletics;
-        this.chemistry = chemistry;
-        this.craftmanship = craftmanship;
-        this.literacy = literacy;
-        this.lore = lore;
-        this.magic = magic;
-        this.medicine = medicine;
-        this.persuasion = persuasion;
-        this.stealth = stealth;
-        this.swordsmanship = swordsmanship;
+    Skills(int a,int b,int c,int d,int e,int f,int g, int h, int i) {
+        weapons = a;
+        combat = b;
+
+        lore = c;
+        magic = d;
+
+        persuasion = e;
+        stealth = f;
+
+        science = g;
+        repair = h;
+
+        survival = i;
     }
 
 }
