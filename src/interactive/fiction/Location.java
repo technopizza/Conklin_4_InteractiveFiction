@@ -13,11 +13,17 @@ public class Location {
         String name;
         String terrain;
         String scenery;
-        Creature[] residents;
-        Location[] connects;
+        Creature resident;
+        Item item;
+        Location connects;
         
-        Location(String s, String t, String x, Creature r, Location()){
+        Location(String s, String t, String x, Creature r, Item i, Location l){
             name = s;
+            terrain = t;
+            scenery =x;
+            resident = r;
+            item = i;
+            connects = l;
             
         }
        

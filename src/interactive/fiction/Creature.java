@@ -5,6 +5,8 @@
  */
 package interactive.fiction;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author jconklin2391
@@ -16,17 +18,18 @@ public class Creature {
     Skills skills;
     Trait[] traits;
     Archetype archetype;
-    Item[] inventory;
+    Item equipped;
+    ArrayList inventory;
     Location location;
     
     int skillPoints;
     int experiencePoints;
 
-    Creature(String n, int l, Item[] i) {
+    Creature(String n, int l, Item i) {
         name = n;
         level = l;
         //traits = t;
-        inventory = i;
+        inventory.add(i);
     }
 
     static final Creature sheep = new Creature("sheep", 1, null);

@@ -13,15 +13,16 @@ public class Archetype {
     String name;
     Trait[] traits;
     Skills skills; 
-    Item[] inventory;
+    Item inventory;
     
-    Archetype(String n, Skills a, Item[] i){
+    Archetype(String n, Skills a, Item i){
         name = n;
         skills = a;
         inventory = i;
     }
 
-    static final Archetype plumber = new Archetype("Plumber", new Skills(3, 3, 3, 0, 3, 3, 3, 5, 3), new Item[]{Item.plunger, Item.hat});
-    static final Archetype ninja = new Archetype("Ninja", new Skills(7, 7, 3, 0, 3, 10, 3, 3, 5), new Item[]{Item.plunger, Item.hat});
+    static final Archetype plumber = new Archetype("Plumber", new Skills(3, 3, 3, 0, 3, 3, 3, 5, 3), Item.plunger);
+    static final Archetype ninja = new Archetype("Ninja", new Skills(7, 7, 3, 0, 3, 10, 3, 3, 5), Item.katana);
+    static final Archetype pizza = new Archetype("Pizza Delivery Guy", new Skills(3, 3, 3, 0, 4, 3, 3, 3, 3), Item.pizza);
 }
 
