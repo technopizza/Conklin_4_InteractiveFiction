@@ -30,13 +30,15 @@ class Item {
     static final Item hat = new Item("hat", 'O', 1);
     static final Item katana = new Item("katana", '⚔', 7);
     
-    static final Item chair = new Item("tire", 'O', 3);
+    static final Item tire = new Item("tire", 'O', 3);
 
     static final Item pizza = new ItemConsumable("pizza slice", '?', 1, 8);
 
     //static final Item playingcard = new ItemConsumable("playing card", '🃑', 9);
     static final Item holygrail = new ItemConsumable("the Holy Grail", '✝', 9);
-    static final Item lightsaber = new Item("lightsaber", '✝', 9);
-
+    static final Item lightsaber = new Item("lightsaber", '✝', 10);
+    static final Item brick = new Item("brick", '.', 1);
+    static final Item laser = new Item("laserbeam", '-', 10);
+    static final Item sword = new Item("sword", '⚔', 3);
     //static final Item katana = new Item("katana", '⚔', 7);
 }

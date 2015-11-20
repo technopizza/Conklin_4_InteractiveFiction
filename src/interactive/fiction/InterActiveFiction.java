@@ -16,12 +16,13 @@ public class InterActiveFiction {
     /**
      * @param args the command line arguments
      */
-    Location pizzastore;
-    Location pasture;
+    
     
     public static void main(String[] args) {
-        
-        
+        Location pizzastore, pasture, woods, swamp, desert, mountains, valley, plain, castle;
+        castle = new Location("King's Castle", "open", "expansive plains", Creature.king, Item.brick, null);
+        plain = new Location("Great Plains", "open", "expansive plains", Creature.thug ,Item.brick, castle);
+        valley = new Location("Grey Valley", "closed", "forest", Creature.thug ,Item.brick, plain);
         
         Scanner playerInput = new Scanner(System.in);
         System.out.println("What is your name?");
@@ -39,10 +40,21 @@ public class InterActiveFiction {
         System.out.println("...");
         //String playerClass = playerInput.nextLine();
        Creature player = new Creature(playerName, 1, Archetype.pizza.inventory);
-       pasture = new Location("Peaceful Pastures", "open fields", String "green grass and rolling hills", Creature.sheep, Item.tire, null)
+       player.location=valley;
+       //pasture = new Location("Peaceful Pastures", "open fields", "green grass and rolling hills", Creature.sheep, Item.tire, woods);
        
         while(true){
-            System.out.println();
+            System.out.println("What would you like to do?");
+            System.out.println("i - inventory   w - location    l - look  t - take item     d - drop item   g - go to next");
+            char option = playerInput.nextLine().charAt(0);
+            switch(option){
+                case 'i': System.out.println(player.inventory); break;
+                case 'w': System.out.println(player.location); break;
+                case 'l': player.location.describe(); break;
+                case 't': player.takeItem(); break;
+                case 'd': player.dropItem(); break;
+                case 'g': player.location = player.location.connects;
+            }
         }
         
     }

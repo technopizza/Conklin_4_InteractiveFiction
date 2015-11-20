@@ -33,5 +33,8 @@ public class Creature {
     }
 
     static final Creature sheep = new Creature("sheep", 1, null);
+    static final Creature king = new Creature("King Mohizzle Abdizzle", 20, Item.lightsaber);
+    static final Creature robot = new Creature("Robosaur", 15, Item.laser);
+    static final Creature thug = new Creature("Pirate", 4, Item.sword);
     
 }
