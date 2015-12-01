@@ -1,21 +1,70 @@
 package interactive.fiction;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
+
 public class InteractiveFiction {
-    Item laurelwreath = new Item("laurel wreath", 1);
-    Item bat = new Item("baseball bat", 3);
-    Item tux = new Item("tuxedo", 3);
-    Item shotgun = new Item("shotgun", 5);
+    static Scanner userinput;
+    static Creature player;
     
-    Item sandals = new Item("sandals", 1);
-    Item hawaiishirt = new Item("flowery Hawaiian shirt", 1);
-    Item buckethat = new Item("bucket hat", 1);
-    Item camera = new Item("camera", 1);
-    Archetype tourist = new Archetype("Tourist", new Inventory(buckethat, hawaiishirt, camera, sandals));
-    //Creature dragon = new Creature("Dragon", 10, );
+    
+    
+    static final Item helmet = new Item("helmet", 4);
+    static final Item sword = new Item("sword", 4);
+    static final Item armor = new Item("armor", 4);
+    static final Item metalboots = new Item("boots", 4);
+    static final Archetype knight = new Archetype("Knight", new Inventory(helmet, armor, sword, metalboots));
+    
+    static final Item cowl = new Item("cowl", 2);
+    static final Item dagger = new Item("dagger", 3);
+    static final Item cloak = new Item("cloak", 2);
+    static final Item boots = new Item("boots", 2);
+    static final Archetype rogue = new Archetype("Rogue", new Inventory(cowl, cloak, dagger, boots));
+    
+    
+    
+    static void begin(){
+        userinput = new Scanner(System.in);
+        System.out.println("What is your name");
+        String playername = userinput.nextLine();
+        System.out.println("Please choose an Archetype:");
+        Archetype.listarchetypes();
+        int choice = userinput.nextInt();
+        Archetype playerarchetype = (Archetype) Archetype.archetypes.get(choice);
+        player = new Creature(playername, 1, playerarchetype.inventory);
+    }
+    
+    void listencommands(char charinput){
+        switch (charinput){
+            case '?': helpscreen(); break;
+            case 'l': 
+            case 'g':
+            case 'e':
+            case 'i': player.inventory.listinventory(); break;
+        }
+    }
+    
+    void helpscreen(){
+        System.out.println("l - look");
+        System.out.println("g - travel");
+        System.out.println("i - see inventory");
+        System.out.println("e - equip");
+    }
+    
+    void mainmenu(){
+        userinput = new Scanner(System.in);
+        System.out.println("What would you like to do? Type \"?\" for a list of commands.");
+        char option = userinput.nextLine().charAt(0);
+        
+        listencommands(option);
+        
+    }
     
     public static void main(String[] args) {
+        Archetype.archetypes.add(knight);
+        Archetype.archetypes.add(rogue);
+        begin();
 //        Location pizzastore, pasture, woods, swamp, desert, mountains, valley, plain, castle;
 //        castle = new Location("King's Castle", "open", "expansive plains", Creature.king, Item.brick, null);
 //        plain = new Location("Great Plains", "open", "expansive plains", Creature.thug ,Item.brick, castle);
