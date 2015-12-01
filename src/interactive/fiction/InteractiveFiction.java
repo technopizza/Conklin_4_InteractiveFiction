@@ -7,7 +7,13 @@ import java.util.Scanner;
 public class InteractiveFiction {
     static Scanner userinput;
     static Creature player;
+    static Location playerlocation;
     
+    
+    
+    
+    
+    static final Item leaf = new Item("leaf", 0);
     
     
     static final Item helmet = new Item("helmet", 4);
@@ -22,7 +28,9 @@ public class InteractiveFiction {
     static final Item boots = new Item("boots", 2);
     static final Archetype rogue = new Archetype("Rogue", new Inventory(cowl, cloak, dagger, boots));
     
+    static final Creature leafmonster = new Creature("Leaf Monster", 1, new Inventory(leaf, leaf, leaf, leaf));
     
+    static Location woods = new Location("Tree Forest", "There are trees everywhere", "They form a fairly large forest", leafmonster);
     
     static void begin(){
         userinput = new Scanner(System.in);
@@ -35,24 +43,26 @@ public class InteractiveFiction {
         player = new Creature(playername, 1, playerarchetype.inventory);
     }
     
-    void listencommands(char charinput){
+   static  void listencommands(char charinput){
         switch (charinput){
             case '?': helpscreen(); break;
-            case 'l': 
-            case 'g':
-            case 'e':
+            case 'l': playerlocation.describe(); 
+            case 'g': 
+            case 'w': System.out.println(playerlocation.name); break;
+            //case 'e':
             case 'i': player.inventory.listinventory(); break;
         }
     }
     
-    void helpscreen(){
+    static void helpscreen(){
         System.out.println("l - look");
         System.out.println("g - travel");
         System.out.println("i - see inventory");
-        System.out.println("e - equip");
+        System.out.println("w - location");
+        //System.out.println("e - equip");
     }
     
-    void mainmenu(){
+    static void mainmenu(){
         userinput = new Scanner(System.in);
         System.out.println("What would you like to do? Type \"?\" for a list of commands.");
         char option = userinput.nextLine().charAt(0);
@@ -65,6 +75,9 @@ public class InteractiveFiction {
         Archetype.archetypes.add(knight);
         Archetype.archetypes.add(rogue);
         begin();
+        while (true){
+            mainmenu();
+        }
 //        Location pizzastore, pasture, woods, swamp, desert, mountains, valley, plain, castle;
 //        castle = new Location("King's Castle", "open", "expansive plains", Creature.king, Item.brick, null);
 //        plain = new Location("Great Plains", "open", "expansive plains", Creature.thug ,Item.brick, castle);
