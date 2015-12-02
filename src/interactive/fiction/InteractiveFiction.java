@@ -8,6 +8,7 @@ public class InteractiveFiction {
     static Scanner userinput;
     static Creature player;
     static Location playerlocation;
+    static int locationcounter = 0;
     
     
     
@@ -29,8 +30,13 @@ public class InteractiveFiction {
     static final Archetype rogue = new Archetype("Rogue", new Inventory(cowl, cloak, dagger, boots));
     
     static final Creature leafmonster = new Creature("Leaf Monster", 1, new Inventory(leaf, leaf, leaf, leaf));
+    static final Creature robber = new Creature("Bandit", 1, rogue.inventory);
     
+    static Location start = new Location("Pavement Slab", "There is a large slab of cement", "Nothing else is around.", null);
     static Location woods = new Location("Tree Forest", "There are trees everywhere", "They form a fairly large forest", leafmonster);
+    static Location meadow = new Location("Small Mammals' Meadow", "There is a small clearing", "small mammals can be seen frolicking about.", robber);
+    
+   
     
     static void begin(){
         userinput = new Scanner(System.in);
@@ -46,13 +52,20 @@ public class InteractiveFiction {
    static  void listencommands(char charinput){
         switch (charinput){
             case '?': helpscreen(); break;
-            case 'l': playerlocation.describe(); 
-            case 'g': 
+            case 'l': playerlocation.describe(); break;
+            case 'g': playerlocation.encounter(); break;
             case 'w': System.out.println(playerlocation.name); break;
             //case 'e':
             case 'i': player.inventory.listinventory(); break;
         }
     }
+   
+   static  void travel(){
+       locationcounter++;
+        playerlocation = (Location) Location.locations.get(locationcounter);
+        playerlocation.encounter();
+        }
+    
     
     static void helpscreen(){
         System.out.println("l - look");
@@ -74,6 +87,9 @@ public class InteractiveFiction {
     public static void main(String[] args) {
         Archetype.archetypes.add(knight);
         Archetype.archetypes.add(rogue);
+        Location.locations.add(start);
+        Location.locations.add(woods);
+        Location.locations.add(meadow);
         begin();
         while (true){
             mainmenu();

@@ -1,10 +1,13 @@
 package interactive.fiction;
 
+import java.util.ArrayList;
+
 public class Location {
         String name;
         String terrain;
         String scenery;
         Creature resident;
+        static ArrayList locations = new ArrayList();
                 
         Location(String s, String t, String x, Creature r){
             name = s;
