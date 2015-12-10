@@ -16,6 +16,7 @@ public class Inventory {
         this.body = body;
         this.hands = hands;
         this.feet = feet;
+        items = new ArrayList();
         //this.items = items;
     }
 
@@ -24,11 +25,20 @@ public class Inventory {
     }
     
     void listinventory(){
+        
+            
+        System.out.println("Equipped Items: ");
+            System.out.println("1. " + head.name);
+            System.out.println("2. " + body.name);
+            System.out.println("3. " + hands.name);
+            System.out.println("4. " + feet.name);
+        System.out.println("Other Items: ");
         for(int i = 0; i < items.size(); i++){
             Item currentitem = (Item) items.get(i);
             System.out.println((i + 1) + ". " + currentitem.name);
         }
     }
+    
     
     void equipHead(Item target){
         items.add(head);

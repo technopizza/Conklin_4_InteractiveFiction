@@ -5,7 +5,7 @@ import java.util.Random;
 public class Creature {
 
     String name;
-    boolean alive;
+    boolean alive = true;
     int level; //overall power of creature; used for most checks
     int health; //vitality of creature; creature dies when health reaches zero
     Inventory inventory; //instance to track each creatures items
@@ -20,20 +20,20 @@ public class Creature {
        int combatvariance = random.nextInt(level);
        return combatvariance + level + inventory.itemBonus();
     }
-    static void combat(Creature a, Creature b){
+    static void combat(Creature a, Creature b){ //decides winner based on greater combat strength
        int apower = a.getCombatStrength();
-        System.out.println(a.name + " swings its " + a.inventory.hands);
+        System.out.println(a.name + " swings its " + a.inventory.hands.name);
        int bpower = b.getCombatStrength();
-       if(apower > bpower){
+       if(apower > bpower){ // Creature A win condition
            System.out.println(b.name + " is knocked dead!");
-           b.alive = false;
+           b.alive = false; a.level++;
        }
-       else if(bpower > apower){
+       else if(bpower > apower){ // Creature B win condition
            System.out.println(b.name + " counters!");
            System.out.println(a.name + " is knocked dead!");
-           a.alive = false;
+           a.alive = false; b.level++;
        }
-       else if(bpower == apower){
+       else if(bpower == apower){ // In a tie, both creatures die
            System.out.println(b.name + "is struck, but counters!");
            System.out.println(a.name + " is knocked dead!");
            System.out.println(b.name + " is knocked dead!");
