@@ -7,7 +7,7 @@ public class Creature {
     String name;
     boolean alive = true;
     int level; //overall power of creature; used for most checks
-    int health; //vitality of creature; creature dies when health reaches zero
+    
     Inventory inventory; //instance to track each creatures items
     static Random random = new Random();
 
